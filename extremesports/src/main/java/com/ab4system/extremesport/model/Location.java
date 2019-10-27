@@ -26,7 +26,9 @@ public class Location extends AbstractBaseEntity {
     private List<Sport> sports = new ArrayList<>();
 
     public void addSport(Sport sport) {
-        sports.add(sport);
+        if(!sports.contains(sport)){
+            sports.add(sport);
+        }
         sport.getLocations().add(this);
     }
 
