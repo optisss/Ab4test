@@ -37,7 +37,7 @@ public class SportServiceImpl implements SportService {
             dbSport.setEndDate(sport.getEndDate());
             dbSport.setName(sport.getName());
             dbSport.setStartDate(sport.getStartDate());
-            dbSport.setPrice(sport.getPrice());
+            dbSport.setPricePerDay(sport.getPricePerDay());
             sportRepository.save(dbSport);
             return dbSport;
         }
