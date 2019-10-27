@@ -33,4 +33,8 @@ public class Region extends AbstractBaseEntity {
         location.setRegion(null);
     }
 
+    public void addLocationAndSetCountry(Location location, Country country) {
+        setCountry(country);
+        addLocation(location);
+    }
 }
