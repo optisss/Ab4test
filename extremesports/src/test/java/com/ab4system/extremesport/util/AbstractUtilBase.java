@@ -10,12 +10,12 @@ import java.util.List;
 public abstract class AbstractUtilBase {
 
 
-    protected LocationDTO createLocationDtoForTest(String country, String region, String locality, String sportname) {
+    protected LocationDTO createLocationDtoForTest(String country, String region, String locality, String sportName) {
         LocationDTO locationDTO= new LocationDTO();
         locationDTO.setCountry(country);
         locationDTO.setLocality(locality);
         locationDTO.setRegion(region);
-        addSports(locationDTO, sportname);
+        addSports(locationDTO, sportName);
         return locationDTO;
     }
 

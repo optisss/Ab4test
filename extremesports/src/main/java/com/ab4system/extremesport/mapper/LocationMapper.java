@@ -19,6 +19,10 @@ public interface LocationMapper {
 
 //    LocationDTO entityToDto(Location location);
 
-//    void updateLocationFromDto(LocationDTO locationDTO,@MappingTarget Location location);
+    @Mapping(source ="country" ,target = "region.country.name")
+    @Mapping(source = "region", target = "region.name")
+    @Mapping(source = "locality", target = "name")
+    @Mapping(source = "sports", target = "sports")
+    void updateLocationFromDto(LocationDTO locationDTO,@MappingTarget Location location);
 
 }

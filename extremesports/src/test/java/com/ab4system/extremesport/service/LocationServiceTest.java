@@ -64,4 +64,18 @@ public class LocationServiceTest extends AbstractUtilBase {
         Location locationUpdated = locationService.createLocation(newRegionLocationDTO);
         assertThat(locationRepository.findAll().size(), is(3));
     }
+
+    @Test
+    public void updateLocation(){
+        clearDatabase();
+        LocationDTO locationDTO = createLocationDtoForTest("Romania", "Brasov", "Poiana Brasov","atv");
+        Location location = locationService.createLocation(locationDTO);
+        LocationDTO updateLocatioDTO = createLocationDtoForTest("Romania", "Brasov", "UpdateLocation", "atvUpdated");
+        Location locationUpdated = locationService.updateLocation(location.getId(), updateLocatioDTO);
+
+        assertThat(locationUpdated.getName(),is("UpdateLocation"));
+        assertThat(locationUpdated.getSports().get(0).getName(),is("atvUpdated"));
+
+
+    }
 }
