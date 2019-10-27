@@ -28,7 +28,7 @@ public class SportTests {
     private int port;
 
     private String getRootUrl() {
-        return "http://localhost:" + port;
+        return "http://localhost:" + port +"/extremesport";
     }
     @Test
     public void contextLoads() {
@@ -44,10 +44,10 @@ public class SportTests {
 
 
     @Test
-    public void testCreateUser() {
+    public void testCreateSport() {
         Sport sport = new Sport();
         sport.setName("testSport");
-        sport.setPrice(20.2);
+        sport.setPricePerDay(20.2);
         sport.setStartDate(LocalDateTime.now());
         sport.setEndDate(LocalDateTime.now().plusDays(30));
         ResponseEntity<Sport> postResponse = restTemplate.postForEntity(getRootUrl() + "/sport/create", sport, Sport.class);
