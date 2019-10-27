@@ -92,10 +92,10 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Location updateLocation(Long locationId, LocationDTO locationDTO) {
-        //TODO
         Optional<Location> locationById = locationRepository.findById(locationId);
-        Location location = locationById.get();
-//        locationMapper.updateLocationFromDto(locationDTO, location);
+        Location location = locationById.orElseThrow(ResourceNotFoundException::new);
+        locationMapper.updateLocationFromDto(locationDTO, location);
+        createOrUpdateHierarchicalStructure(location, location.getRegion(), location.getRegion().getCountry()); 
         locationRepository.save(location);
         return location;
     }
